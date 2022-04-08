@@ -105,7 +105,7 @@ def test(args):
                 continue
             result_dev[key] = float(tensor_value_dev)  # Might lose some precisions
             result_test[key] = float(tensor_value_test)
-        now = datetime.now()
+        now = datetime.datetime.now()
         current_time = now.strftime("%H-%M-%S")
         with open("dev_result"+args.dev[-3:]+current_time+".json", "w") as dev_file:
             json.dump(result_dev, dev_file)
