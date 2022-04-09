@@ -2,7 +2,7 @@
 
 This directory stores our re-implementation of existing works. 
 
-- BERT;
+- BERT; BERTweet;
 
 - CharCNN; Character-level Convolutional Networks for Text
 Classification
