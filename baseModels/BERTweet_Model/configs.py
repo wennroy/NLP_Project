@@ -3,9 +3,9 @@ import argparse
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--train", type=str, default='../../data/goemotions_train.csv')
-    parser.add_argument("--dev", type=str, default='../../data/goemotions_dev.csv')
-    parser.add_argument("--test", type=str, default='../../data/goemotions_test.csv')
+    parser.add_argument("--train", type=str, default='../../data/train.tsv')
+    parser.add_argument("--dev", type=str, default='../../data/dev.tsv')
+    parser.add_argument("--test", type=str, default='../../data/test.tsv')
     parser.add_argument("--seed", type=int, default=11711)
     parser.add_argument("--batch_size", type=int, default=4)
     parser.add_argument("--main_lrate", type=float, default=0.00001)
