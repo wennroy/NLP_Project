@@ -71,10 +71,12 @@ class Goemotions(Dataset):
         batch = list(zip(*batch))
         labels = torch.tensor(batch[1])
         texts = list(batch[0])
+        tokenized_tokens = self.tokenizer(texts, padding=True, truncation=True, max_length=self.sent_len)
         tokens = torch.tensor(
-            self.tokenizer(texts, padding=True, truncation=True, max_length=self.sent_len)["input_ids"])
+            tokenized_tokens["input_ids"])
+        attn_mask = torch.tensor(tokenized_tokens["attention_mask"])
         del batch
-        return tokens, labels
+        return tokens, labels, attn_mask
 
 
 if __name__ == '__main__':
@@ -86,8 +88,9 @@ if __name__ == '__main__':
         train_dataset = Goemotions(train_data, num_labels, args)
         train_dataloader = DataLoader(train_dataset, shuffle=True, batch_size=args.batch_size,
                                       collate_fn=train_dataset.collate_fn)
-        for batch_idx, (batch_input, batch_label) in enumerate(train_dataloader):
+        for batch_idx, (batch_input, batch_label, batch_attn_mask) in enumerate(train_dataloader):
             print(batch_idx)
             print(batch_input)
             print(batch_label)
+            print(batch_attn_mask)
             break

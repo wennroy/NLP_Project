@@ -21,9 +21,9 @@ def model_eval(model, device, dev_dataloader, loss_fn, output_pred=False):
     with torch.no_grad():
         model_result = []
         targets = []
-        for dev_idx, (dev_token, dev_label) in enumerate(dev_dataloader):
-            dev_token = dev_token.to(device)
-            model_dev_result = model(dev_token)
+        for dev_idx, (dev_token, dev_label, dev_attn_mask) in enumerate(dev_dataloader):
+            dev_token, dev_attn_mask = dev_token.to(device), dev_attn_mask.to(device)
+            model_dev_result = model(dev_token, dev_attn_mask)
             model_result.extend(model_dev_result.cpu().numpy())
             targets.extend(dev_label.cpu().numpy())
 

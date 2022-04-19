@@ -30,9 +30,9 @@ class Basic_BERTweet_Classifier(nn.Module):
         nn.init.xavier_normal_(self.linear1.weight.data, gain=1.0)
         nn.init.xavier_normal_(self.linear2.weight.data, gain=1.0)
 
-    def forward(self, x):
+    def forward(self, x, attn_mask):
         input_ids = x
-        Bertweet_output = self.Bertweet(input_ids)
+        Bertweet_output = self.Bertweet(input_ids, attn_mask)
         pooler_output = Bertweet_output["pooler_output"]
 
         feedfoward_output = self.linear1(pooler_output)

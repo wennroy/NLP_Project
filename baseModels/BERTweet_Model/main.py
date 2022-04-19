@@ -69,11 +69,12 @@ def train():
     EARLY_STOP = 10
     for epoch in range(args.epoch):
         batch_losses = []
-        for batch_idx, (batch_token, batch_label) in enumerate(train_dataloader):
+        for batch_idx, (batch_token, batch_label, batch_attn_mask) in enumerate(train_dataloader):
             model.train()
             optimizer.zero_grad()
-            batch_token, batch_label = batch_token.to(device), batch_label.to(device)
-            model_result = model(batch_token)
+            batch_token, batch_label, batch_attn_mask = batch_token.to(device), batch_label.to(
+                device), batch_attn_mask.to(device)
+            model_result = model(batch_token, batch_attn_mask)
             loss = loss_fn(model_result, batch_label)
             batch_loss_value = loss.item()
             loss.backward()
