@@ -5,10 +5,15 @@ This folder includes all the scripts needed for reproducing the results that we 
 ## Requirement
 
 python==3.8
+
 tensorflow==2.8.0
+
 tensorflow-datasets==4.5.2
+
 sklearn==0.0
+
 numpy==1.21.2
+
 pandas==1.4.2
 
 ## Components
