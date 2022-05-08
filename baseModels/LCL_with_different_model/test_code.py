@@ -103,7 +103,7 @@ def test(args):
                 result_dev[key] = emo_dict
                 emo_dict = {}
                 for i in range(len(tensor_value_dev)):  # is actually a numpy array
-                    emo_dict[emotions_mapping[i]] = tensor_value_dev[i]
+                    emo_dict[emotions_mapping[i]] = tensor_value_test[i]
                 result_test[key] = emo_dict
                 continue
             result_dev[key] = float(tensor_value_dev)  # Might lose some precisions
