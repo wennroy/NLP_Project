@@ -12,3 +12,9 @@ You can change the setting by running
  to change the default model. We support most of the BERT-related model, such as
  ```--pretrained_model='google/electra-base-discriminator'```(ELECTRA) etc.
  
+ 
+## tSNE visualization
+Make sure you have already save the model (a `.pt` file), then change the save_name into corresponding name for `.pt` file.
+Then run ``python tSNE_visualization.py --argument``
+
+`--argument` is the argument you set previously to run `main.py`.
