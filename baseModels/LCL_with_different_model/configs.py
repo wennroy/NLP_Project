@@ -11,8 +11,8 @@ def get_args():
     parser.add_argument("--main_lrate", type=float, default=0.00005)
     parser.add_argument("--hidden_size", type=int, default=1024)
     parser.add_argument("--epoch", type=int, default=5)
-    parser.add_argument("--pretrained_model", type=str, default="google/electra-base-discriminator")  # google/electra-base-discriminator vinai/bertweet-base
-    parser.add_argument("--weighting_model", type=str, default="imvladikon/charbert-bert-wiki")  # imvladikon/charbert-bert-wiki
+    parser.add_argument("--pretrained_model", type=str, default="imvladikon/charbert-bert-wiki")  # google/electra-base-discriminator vinai/bertweet-base
+    parser.add_argument("--weighting_model", type=str, default="google/electra-base-discriminator")  # imvladikon/charbert-bert-wiki
     parser.add_argument("--dropout", type=float, default=0.3)
     parser.add_argument("--decay", type=float, default=0.01)
     parser.add_argument("--emotions_txt", type=str, default="../../data/emotions.txt")
